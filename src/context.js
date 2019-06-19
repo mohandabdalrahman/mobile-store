@@ -7,7 +7,7 @@ const ProductContext = React.createContext();
 export default class ProductProvider extends Component {
   state = {
     products: [],
-    detailProduct
+    detailProduct: detailProduct
   };
 
   componentDidMount() {
@@ -27,11 +27,20 @@ export default class ProductProvider extends Component {
     });
   };
 
-  handleDetail = () => {
-    console.log("hello from detail");
+  getItem = id => {
+    const product = this.state.products.find(product => product.id === id);
+    return product;
   };
-  addToCart = () => {
-    console.log("hello from add to cart");
+  handleDetail = id => {
+    const product = this.getItem(id);
+    this.setState(() => {
+      return {
+        detailProduct: product
+      };
+    });
+  };
+  addToCart = id => {
+    console.log(`hello from add to cart id is ${id}`);
   };
   render() {
     return (
