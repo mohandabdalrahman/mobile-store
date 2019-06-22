@@ -8,9 +8,13 @@ export default class ProductProvider extends Component {
   state = {
     products: [],
     detailProduct: detailProduct,
-    cart:[],
+    cart: storeProducts,
     modelOpen:false,
-    modelProduct: detailProduct
+    modelProduct: detailProduct,
+    cartSubTotal:0,
+    cartTax:0,
+    cartTotal:0
+    
   };
 
   componentDidMount() {
@@ -75,6 +79,25 @@ modelOpen:false
   })
 }
 
+increment=(id)=>{
+console.log("TCL: ProductProvider -> increment -> id", id)
+  
+}
+
+decrement=(id)=>{
+console.log("TCL: ProductProvider -> id", id)
+  
+}
+
+removeItem=id=>{
+console.log("TCL: ProductProvider -> id", id)
+  
+}
+
+clearCart=()=>{
+  console.log("cart clear")
+}
+
   render() {
     return (
       <ProductContext.Provider
@@ -83,7 +106,11 @@ modelOpen:false
           handleDetail: this.handleDetail,
           addToCart: this.addToCart,
           openModel:this.openModel,
-          closeModel:this.closeModel
+          closeModel:this.closeModel,
+          increment:this.increment,
+          decrement:this.decrement,
+          removeItem:this.removeItem,
+          clearCart:this.clearCart
         }}
       >
         {this.props.children}
