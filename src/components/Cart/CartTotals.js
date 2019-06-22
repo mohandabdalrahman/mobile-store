@@ -1,7 +1,8 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import Paypal from './Paypal';
 export default function CartTotals() {
-    const {value}=this.props;
+    const {value,history}=this.props;
     const {cartSubTotal, cartTax, cartTotal,clearCart}=value
     return (
         <React.Fragment>
@@ -35,6 +36,8 @@ cartTotal:
 </span>
 <strong>$ {cartTotal}</strong>
 </h5>
+
+<Paypal total={cartTotal} clearCart={clearCart} history={history}/>
 
                     </div>
                 </div>
