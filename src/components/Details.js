@@ -54,7 +54,12 @@ export default class Details extends Component {
                     </Link>
                     <Link to="">
                       <ButtonContainer cart
-                        onClick={() => value.addToCart(id)}
+                        onClick={() => {
+                          value.addToCart(id);
+                          value.openModel(id);
+                        }
+                        
+                        }
                         disabled={inCart}
                       >
                         {inCart ? "inCart" : "Add to cart"}

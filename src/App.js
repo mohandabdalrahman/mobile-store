@@ -8,6 +8,7 @@ import Cart from './components/Cart';
 import ProductList from './components/ProductList';
 import Default from './components/Default';
 import Details from './components/Details';
+import Model from './components/Model'
 function App() {
   return (
 <Fragment>
@@ -18,7 +19,7 @@ function App() {
   <Route path='/cart' component={Cart}/>
   <Route  component={Default}/>
 </Switch>
-
+<Model/>
 </Fragment>
   );
 }

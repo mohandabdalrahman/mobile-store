@@ -22,7 +22,8 @@ export default class Product extends Component {
                 <button
                   className="cart-btn"
                   onClick={() => {
-                    console.log("add to cart");
+                  value.addToCart(id);
+                  value.openModel(id)
                   }}
                   disabled={inCart}
                 >
